@@ -1,6 +1,10 @@
 <template lang="html">
-  <div class="container">
+  <div class="container text-center">
     <h1>Welcome to Homepage!</h1>
+    <div class="row justify-content-center">
+      <router-link to="/signin" class="btn btn-primary"><a>SignIn</a></router-link>
+      <router-link to="/signup" class="btn btn-primary"><a>SignUp</a></router-link>
+    </div>
   </div>
 </template>
 
@@ -10,4 +14,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  .container{
+    margin-top: 50px;
+  }
+  .row a{
+    margin: 30px;
+  }
 </style>
