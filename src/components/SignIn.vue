@@ -32,5 +32,6 @@ export default {
     border: 1px solid slategrey;
     border-radius: 20px;
     padding: 35px;
+    box-shadow: 3px 3px slategrey;
   }
 </style>
