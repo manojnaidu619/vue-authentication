@@ -35,7 +35,8 @@ export default {
   },
   computed: {
     validate(){
-      if(this.email && this.password.length > 0 && this.password == this.confirmPassword){
+      var eVal = /\S+@\S+\.\S+/
+      if(this.email.match(eVal) && this.password.length > 0 && this.password == this.confirmPassword){
         return false
       }
       return true
