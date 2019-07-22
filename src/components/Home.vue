@@ -6,7 +6,7 @@
       </div>
     </div>
     <h1>Welcome to Homepage!</h1>
-    <h4 class="email" v-if="signInCheck == true">{{decodedData}}</h4>
+    <h3 class="email" v-if="signInCheck == true">{{decodedData}}</h3><br>
     <div v-if="signInCheck == false" class="row justify-content-center">
       <router-link to="/signin" class="btn btn-primary"><a>SignIn</a></router-link>
       <router-link to="/signup" class="btn btn-primary"><a>SignUp</a></router-link>
