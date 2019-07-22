@@ -47,6 +47,7 @@ export default {
           localStorage.setItem('signInToken', res.data.jwt);
           this.$store.state.signedIn = true
           this.$router.push('/')
+          this.$store.dispatch('signOutInterval')
       })
       .catch(error => {
           this.show = true
