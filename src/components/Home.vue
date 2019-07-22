@@ -6,6 +6,7 @@
       </div>
     </div>
     <h1>Welcome to Homepage!</h1>
+    <p>{{$store.state.signedIn}}</p>
     <div class="row justify-content-center">
       <router-link to="/signin" class="btn btn-primary"><a>SignIn</a></router-link>
       <router-link to="/signup" class="btn btn-primary"><a>SignUp</a></router-link>
