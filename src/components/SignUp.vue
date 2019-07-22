@@ -14,9 +14,9 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Confirm Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" v-model="confirmPassword" class="form-control" id="exampleInputPassword1" placeholder="Password">
           </div>
-          <button type="submit" @click.prevent="createUser()" class="btn btn-success">Submit</button>
+          <button type="submit" :disabled="validate" @click.prevent="createUser()" class="btn btn-success">Submit</button>
         </form>
       </div>
     </div>
@@ -29,7 +29,16 @@ export default {
   data(){
     return{
       email: '',
-      password: ''
+      password: '',
+      confirmPassword: ''
+    }
+  },
+  computed: {
+    validate(){
+      if(this.email && this.password.length > 0 && this.password == this.confirmPassword){
+        return false
+      }
+      return true
     }
   },
   methods:{
