@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VueJwtDecode from 'vue-jwt-decode'
 
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    signedIn: false
+    signedIn: false,
   },
   mutations:{
     signOut(state){
@@ -14,10 +15,10 @@ export const store = new Vuex.Store({
     }
   },
   actions: {
-    signOutInterval({ commit }) {
+    signOutInterval({ commit }, time) {
       setTimeout(() => {
         commit('signOut')
-      }, 5000)
-    }
+      }, time)
+   }
   }
 })

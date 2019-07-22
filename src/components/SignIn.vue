@@ -27,6 +27,7 @@
 
 <script>
 import axios from 'axios'
+import VueJwtDecode from 'vue-jwt-decode'
 export default {
   data(){
     return {
@@ -43,11 +44,12 @@ export default {
       }
       axios.post('http://localhost:3000/tokens', user)
       .then(res => {
-          console.log(res.data.jwt)
-          localStorage.setItem('signInToken', res.data.jwt);
+          //console.log(res.data.jwt)
+          var decoded = VueJwtDecode.decode(res.data.jwt)
+          localStorage.setItem('signInToken', res.data.jwt)
           this.$store.state.signedIn = true
           this.$router.push('/')
-          this.$store.dispatch('signOutInterval')
+          this.$store.dispatch('signOutInterval', decoded.exp)
       })
       .catch(error => {
           this.show = true
