@@ -44,7 +44,6 @@ export default {
       }
       axios.post('http://localhost:3000/tokens', user)
       .then(res => {
-          console.log(res.data.jwt)
           var decoded = VueJwtDecode.decode(res.data.jwt)
           localStorage.setItem('signInToken', res.data.jwt)
           this.$store.dispatch('signOutInterval', decoded.exp)
