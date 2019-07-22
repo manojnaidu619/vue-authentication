@@ -2,12 +2,11 @@
   <div class="container text-center">
     <div class="row">
       <div class="col">
-        <p class="status">Not Signed!</p>
+        <p>Signed In? : <span class="status">{{signInCheck}}</span></p>
       </div>
     </div>
     <h1>Welcome to Homepage!</h1>
-    <p>{{$store.state.signedIn}}</p>
-    <div class="row justify-content-center">
+    <div v-if="signInCheck == false" class="row justify-content-center">
       <router-link to="/signin" class="btn btn-primary"><a>SignIn</a></router-link>
       <router-link to="/signup" class="btn btn-primary"><a>SignUp</a></router-link>
     </div>
@@ -16,6 +15,11 @@
 
 <script>
 export default {
+  computed: {
+    signInCheck(){
+      return this.$store.state.signedIn
+    }
+  }
 }
 </script>
 
@@ -27,6 +31,7 @@ export default {
     margin: 30px;
   }
   .status{
-    color: red;
+    color: OrangeRed;
+    font-weight: bold;
   }
 </style>

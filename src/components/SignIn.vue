@@ -1,7 +1,13 @@
 <template lang="html">
   <div class="container">
     <div class="row justify-content-center">
+      <h4><span class="badge badge-pill badge-info">email : test@test.com</span></h4>
+      <h4><span class="badge badge-pill badge-info">password : testing</span></h4>
+    </div>
+
+    <div class="row justify-content-center">
       <div class="col-sm-4 col-md-6 form-box">
+        <p class="text-center error" v-if="show">Invalid email/password</p>
           <h1 class="text-center">Signin</h1>
         <form>
           <div class="form-group">
@@ -25,7 +31,8 @@ export default {
   data(){
     return {
       email: '',
-      password: ''
+      password: '',
+      show: false
     }
   },
   methods: {
@@ -37,9 +44,13 @@ export default {
       axios.post('http://localhost:3000/tokens', user)
       .then(res => {
           console.log(res.data.jwt)
+          this.$store.state.signedIn = true
           this.$router.push('/')
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+          this.show = true
+          console.log(error)
+      })
     }
   }
 }
@@ -54,5 +65,11 @@ export default {
     border-radius: 20px;
     padding: 35px;
     box-shadow: 3px 3px slategrey;
+  }
+  .error{
+    color: red;
+  }
+  .badge{
+    margin: 10px;
   }
 </style>

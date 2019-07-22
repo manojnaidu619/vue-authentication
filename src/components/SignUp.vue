@@ -50,7 +50,10 @@ export default {
       }
       console.log(user)
       axios.post('http://localhost:3000/users', user)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res)
+        this.$router.push('/')
+      })
       .catch(error => console.log(error))
     }
   }
