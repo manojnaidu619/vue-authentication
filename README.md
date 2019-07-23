@@ -9,6 +9,6 @@ yarn install
 ```
 yarn run serve
 ```
-👉[Check out Backend](https://github.com/manojnaidu619/vue-authentication)👈
+👉[Check out frontend](https://github.com/manojnaidu619/rails-auth-backend)👈
 
 ![](./vue.gif)
