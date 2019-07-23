@@ -18,7 +18,7 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" v-model="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
           </div>
-          <button type="submit" @click.prevent="login()" class="btn btn-success">Submit</button>
+          <button type="submit" :disabled="validate" @click.prevent="login()" class="btn btn-success">Submit</button>
         </form>
       </div>
     </div>
@@ -34,6 +34,15 @@ export default {
       email: '',
       password: '',
       show: false
+    }
+  },
+  computed: {
+    validate(){
+      var eVal = /\S+@\S+\.\S+/
+      if(this.email.match(eVal) && this.password.length > 0){
+        return false
+      }
+      return true
     }
   },
   methods: {

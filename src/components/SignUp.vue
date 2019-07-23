@@ -48,10 +48,9 @@ export default {
         email: this.email,
         password: this.password
       }
-      console.log(user)
       axios.post('http://localhost:3000/users', user)
       .then(res => {
-        console.log(res)
+        alert("Successfully Signed up!")
         this.$router.push('/')
       })
       .catch(error => console.log(error))
