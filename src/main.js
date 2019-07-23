@@ -8,7 +8,7 @@ import axios from 'axios'
 Vue.use(VueRouter)
 Vue.config.productionTip = false
 
-axios.defaults.headers.post['Authorization'] = localStorage.signInToken
+axios.defaults.headers['Authorization'] = localStorage.signInToken
 
 const router = new VueRouter({
   mode: 'history',

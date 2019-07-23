@@ -6,23 +6,34 @@
       </div>
     </div>
     <h1>Welcome to Homepage!</h1>
-    <h3 class="email" v-if="signInCheck == true">{{decodedData}}</h3><br>
+    <h3 class="email" v-if="signInCheck == true">{{decodedData.email}}</h3><br>
     <div v-if="signInCheck == false" class="row justify-content-center">
       <router-link to="/signin" class="btn btn-primary"><a>SignIn</a></router-link>
       <router-link to="/signup" class="btn btn-primary"><a>SignUp</a></router-link>
     </div>
     <div class="row justify-content-center" v-else>
-      <button type="button" @click="logout()" class="btn btn-danger">Logout</button>
+      <div class=col-3><button type="button" @click="logout()" class="btn btn-danger">Logout</button></div>
+      <h3><p>{{random}}</p></h3>
     </div>
   </div>
 </template>
 
 <script>
 import VueJwtDecode from 'vue-jwt-decode'
+import axios from 'axios'
 export default {
+  data(){
+    return{
+      random: null
+    }
+  },
   created(){
     if(localStorage.getItem('signInToken')){
       this.$store.state.signedIn = true
+      axios.get('http://localhost:3000/testing')
+      .then(res => {
+        this.random = res.data.integer
+      })
     }
   },
   computed: {
