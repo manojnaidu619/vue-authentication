@@ -1,5 +1,9 @@
 # vue-authentication
 
+👉[Check out backend](https://github.com/manojnaidu619/rails-auth-backend)👈
+
+![](./vue.gif)
+
 ## Project setup
 ```
 yarn install
@@ -9,6 +13,5 @@ yarn install
 ```
 yarn run serve
 ```
-👉[Check out backend](https://github.com/manojnaidu619/rails-auth-backend)👈
 
-![](./vue.gif)
+
