@@ -1,6 +1,4 @@
-# vue-authentication
-
-👉[Check out backend](https://github.com/manojnaidu619/rails-auth-backend)👈
+# vue-authentication &nbsp; [![Generic badge](https://img.shields.io/badge/Checkout-Backend-Orange.svg)](https://github.com/manojnaidu619/rails-auth-backend)
 
 ![](./vue.gif)
 
